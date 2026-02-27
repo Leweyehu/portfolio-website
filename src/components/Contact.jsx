@@ -84,7 +84,7 @@ export default function Contact() {
               <a href="https://www.linkedin.com/in/leweyehu-yirsaw-9040b8b6/">
                 <FaLinkedin />
               </a>
-              <a href="#">
+              <a href="mailto:yourgmail@gmail.com">
                 <FaEnvelope />
               </a>
             </div>
