@@ -1,0 +1,92 @@
+/* ===============================
+   PREMIUM INTERNATIONAL FOOTER
+================================= */
+
+.footer {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #f8fafc;
+
+  padding: 60px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container */
+.footer-container {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Footer Text */
+.footer-text {
+  font-size: 1rem;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+/* Social Icons */
+.footer-socials {
+  display: flex;
+  gap: 25px;
+}
+
+/* Icon Style */
+.social-icon {
+  color: #94a3b8;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  transition: all 0.35s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Hover Effect */
+.social-icon:hover {
+  color: #38bdf8;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 15px;
+  }
+
+  .footer-socials {
+    gap: 18px;
+  }
+}
+.footer {
+  background: #0b1120; /* Modern deep navy professional background */
+  color: #f8fafc;
+
+  padding: 60px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}

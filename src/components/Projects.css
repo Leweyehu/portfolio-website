@@ -1,0 +1,115 @@
+/* ===============================
+   PREMIUM INTERNATIONAL PROJECT SECTION
+================================ */
+
+.projects {
+  padding: 100px 20px;
+
+  /* Modern attractive background (deep gradient) */
+  background: linear-gradient(135deg, #020617, #0f172a, #020617);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section Title */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 60px;
+
+  background: linear-gradient(45deg, #38bdf8, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid Layout Centering */
+.project-grid {
+  width: 100%;
+  max-width: 1200px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center; /* ⭐ Center cards horizontally */
+
+  gap: 40px;
+}
+
+/* Project Card */
+.project-card {
+  background: rgba(15, 23, 42, 0.85);
+
+  color: white;
+
+  padding: 40px 32px;
+  border-radius: 26px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+
+  backdrop-filter: blur(12px);
+
+  transition: all 0.4s ease;
+
+  max-width: 380px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hover Animation */
+.project-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  border: 1px solid #38bdf8;
+}
+
+/* Project Title */
+.project-card h3 {
+  color: #38bdf8;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Description */
+.project-desc {
+  color: #cbd5e1;
+  margin-bottom: 25px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Feature List */
+.project-features {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.project-features li {
+  position: relative;
+  padding-left: 24px;
+  margin: 14px 0;
+
+  color: #e2e8f0;
+  font-size: 0.95rem;
+
+  text-align: left;
+}
+
+/* Bullet Dot */
+.project-features li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+
+  background: #38bdf8;
+  border-radius: 50%;
+
+  position: absolute;
+  left: 0;
+  top: 8px;
+}

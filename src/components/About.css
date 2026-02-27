@@ -1,0 +1,111 @@
+/* ===============================
+   ABOUT SECTION – PREMIUM DESIGN
+================================= */
+
+.about {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #425c81, #203a43, #2c5364);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Decorative animated background glow */
+.about::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 99, 71, 0.25);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  filter: blur(120px);
+  animation: floatGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+
+/* Section Title */
+.about h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Animated underline */
+.about h2::after {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 60%;
+  margin: 10px auto 0;
+  background: linear-gradient(to right, #ff6347, #ff9966);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.about h2:hover::after {
+  width: 100%;
+}
+
+/* Glassmorphism content card */
+.about p {
+  max-width: 850px;
+  margin: 40px auto 0;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  padding: 40px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover effect */
+.about p:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Fade-in animation */
+.about {
+  animation: fadeInSection 1.2s ease-in-out;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 15px;
+  }
+
+  .about p {
+    padding: 25px;
+    font-size: 1rem;
+  }
+}
