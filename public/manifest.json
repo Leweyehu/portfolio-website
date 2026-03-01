@@ -1,21 +1,11 @@
 {
-  "short_name": "myapplications",
-  "name": "Leweyehu Yirsaw | Full Stack Web Developer",
+  "short_name": "Leweyehu",
+  "name": "Full Stack Developer specialized in Django, React,Java, PHP, C++, React,Python and Laravel Web development",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",
