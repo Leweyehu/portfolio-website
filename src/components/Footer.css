@@ -1,92 +1,75 @@
 /* ===============================
-   PREMIUM INTERNATIONAL FOOTER
+   THEME-RESPONSIVE FOOTER
 ================================= */
 
 .footer {
-  background: linear-gradient(135deg, #0f172a, #020617);
-  color: #f8fafc;
-
+  /* Dynamic background and text */
+  background: var(--bg-main);
+  color: var(--text-main);
+  border-top: 1px solid var(--border-color);
+  
   padding: 60px 20px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  position: relative;
-  overflow: hidden;
+  transition: all 0.4s ease;
 }
 
-/* Container */
 .footer-container {
   width: 100%;
   max-width: 900px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
+  text-align: center;
 }
 
-/* Footer Text */
+/* FIX: Changed from hardcoded dark color to dynamic variable */
 .footer-text {
   font-size: 1rem;
-  color: #94a3b8;
+  color: var(--text-main); 
   letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
-/* Social Icons */
+/* Location Text */
+.footer-container p:not(.footer-text) {
+  color: var(--text-sub);
+  font-size: 0.9rem;
+}
+
 .footer-socials {
   display: flex;
-  gap: 25px;
+  gap: 20px;
+  margin-top: 10px;
 }
 
-/* Icon Style */
 .social-icon {
-  color: #94a3b8;
-
+  /* Using card background for the circle */
+  background: var(--bg-card);
+  color: var(--text-sub);
+  
   width: 44px;
   height: 44px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.05);
-
+  border: 1px solid var(--border-color);
+  
   transition: all 0.35s ease;
-
-  backdrop-filter: blur(10px);
 }
 
-/* Hover Effect */
 .social-icon:hover {
-  color: #38bdf8;
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+  color: #38bdf8; /* Accent color */
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .footer {
     padding: 40px 15px;
   }
-
-  .footer-socials {
-    gap: 18px;
-  }
-}
-.footer {
-  background: #0b1120; /* Modern deep navy professional background */
-  color: #f8fafc;
-
-  padding: 60px 20px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  overflow: hidden;
 }

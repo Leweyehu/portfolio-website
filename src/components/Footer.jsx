@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="footer-socials">
           <a
-            href="https://github.com/Leweyehu"
+            href="https://www.linkedin.com/in/leweyehu-yirsaw-9040b8b6/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
@@ -23,7 +23,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/leweyehu-yirsaw-9040b8b6/"
+            href="https://github.com/Leweyehu"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
@@ -31,7 +31,8 @@ export default function Footer() {
             <Github size={20} />
           </a>
 
-          <a href="leweyehuyirsaw55@gmail.com" className="social-icon">
+          {/* Added mailto: so the link works correctly */}
+          <a href="mailto:leweyehuyirsaw55@gmail.com" className="social-icon">
             <Mail size={20} />
           </a>
         </div>

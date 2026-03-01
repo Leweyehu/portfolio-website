@@ -21,7 +21,7 @@
   font-weight: 800;
   margin-bottom: 60px;
 
-  background: linear-gradient(45deg, #38bdf8, #ffffff);
+  background: linear-gradient(45deg, #38bdf8, #2643b9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -40,7 +40,7 @@
 
 /* Project Card */
 .project-card {
-  background: rgba(15, 23, 42, 0.85);
+  /* background: rgba(15, 23, 42, 0.85); */
 
   color: white;
 
@@ -112,4 +112,23 @@
   position: absolute;
   left: 0;
   top: 8px;
+}
+.projects {
+  padding: 100px 20px;
+  background: var(--bg-main);
+}
+
+.project-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.project-card h3 {
+  color: #38bdf8;
+}
+
+.project-desc, .project-features li {
+  color: var(--text-sub);
 }

@@ -1,55 +1,53 @@
-/* ===============================
-   ABOUT SECTION – PREMIUM DESIGN
-================================= */
-
 .about {
   position: relative;
   padding: 120px 20px;
   text-align: center;
-  background: linear-gradient(135deg, #425c81, #203a43, #2c5364);
-  color: #ffffff;
+
+  background: var(--bg-main);
+  color: var(--text-main);
+
   overflow: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+
+  animation: fadeInSection 1.2s ease-in-out;
 }
 
-/* Decorative animated background glow */
+/* Glow Background Effect */
 .about::before {
   content: "";
   position: absolute;
   width: 400px;
   height: 400px;
-  background: rgba(255, 99, 71, 0.25);
+
+  background: var(--accent);
+  opacity: 0.15;
+
   border-radius: 50%;
   top: -100px;
   left: -100px;
+
   filter: blur(120px);
   animation: floatGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-@keyframes floatGlow {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(40px);
-  }
-}
-
-/* Section Title */
+/* Title */
 .about h2 {
   font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 20px;
-  position: relative;
+  margin-bottom: 50px;
   display: inline-block;
 }
 
-/* Animated underline */
+/* Underline Animation */
 .about h2::after {
   content: "";
   display: block;
   height: 4px;
   width: 60%;
   margin: 10px auto 0;
-  background: linear-gradient(to right, #ff6347, #ff9966);
+
+  background: linear-gradient(to right, var(--accent), #ff9966);
+
   border-radius: 10px;
   transition: width 0.4s ease;
 }
@@ -58,33 +56,88 @@
   width: 100%;
 }
 
-/* Glassmorphism content card */
-.about p {
-  max-width: 850px;
-  margin: 40px auto 0;
-  font-size: 1.15rem;
-  line-height: 1.9;
-  padding: 40px;
-  border-radius: 20px;
+/* List Card Design */
+.about-list {
+  list-style: none;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto;
 
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: left;
 }
 
-/* Hover effect */
-.about p:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+.about-list li {
+  position: relative;
+  padding: 25px 30px 25px 70px;
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+
+  color: var(--text-sub);
+
+  border-radius: 24px;
+
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+
+  border: 1px solid var(--border-color);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  transition: all 0.4s ease;
 }
 
-/* Fade-in animation */
-.about {
-  animation: fadeInSection 1.2s ease-in-out;
+/* Bullet Icon */
+.about-list li::before {
+  content: "→";
+
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 34px;
+
+  background: linear-gradient(135deg, var(--accent), #ff9966);
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-weight: bold;
+
+  box-shadow: 0 4px 15px rgba(255,99,71,0.3);
+}
+
+/* Strong Title Inside List */
+.about-list li strong {
+  color: var(--text-main);
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Hover Effect */
+.about-list li:hover {
+  transform: translateX(14px) scale(1.02);
+
+  border-color: var(--accent);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Animations */
+@keyframes floatGlow {
+  from { transform: translateY(0); }
+  to { transform: translateY(40px); }
 }
 
 @keyframes fadeInSection {
@@ -98,14 +151,14 @@
   }
 }
 
-/* Responsive Improvements */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width:768px) {
   .about {
     padding: 80px 15px;
   }
 
-  .about p {
-    padding: 25px;
+  .about-list li {
+    padding: 20px 20px 20px 60px;
     font-size: 1rem;
   }
 }

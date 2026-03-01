@@ -3,7 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #4f74ac, #1f1f1f);
+
+  /* SAME background as projects section */
+  background: linear-gradient(135deg, #020617, #0f172a, #020617);
+
   color: white;
   padding: 0 10%;
 }
@@ -95,4 +98,41 @@
     width: 250px;
     height: 250px;
   }
+}
+.hero {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-main);
+  color: var(--text-main);
+  padding: 0 10%;
+  transition: background 0.4s ease;
+}
+
+.hero-content .name {
+  color: var(--accent); /* Now uses the Tomato/Red accent */
+}
+
+.hero-content h2 {
+  color: var(--text-sub);
+}
+
+.hero-content p {
+  color: var(--text-sub);
+}
+
+.hero-image img {
+  border: 5px solid var(--accent);
+  box-shadow: 0 0 40px rgba(255, 99, 71, 0.3);
+}
+
+.hero-btn {
+  background: var(--accent);
+  color: white;
+  border-radius: 30px;
+  border: none;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: 0.3s;
 }

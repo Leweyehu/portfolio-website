@@ -1,27 +1,36 @@
 import "./Experience.css";
+
 const experiences = [
   {
     title: "Full Stack Developer | Education Management System",
     achievements: [
-      "Designed and developed a comprehensive continuing education management system from scratch using PHP, MySQL, JavaScript, and CSS",
-      "Built responsive front-end interfaces with modern CSS (Flexbox/Grid) and vanilla JavaScript for enhanced user experience across all devices",
-      "Implemented core features including student enrollment, course registration, payment tracking, certificate generation, and automated email notifications",
-      "Developed secure user authentication and role-based access control for administrators, instructors, and students",
-      "Created dynamic reporting dashboards displaying real-time analytics on student progress, course completion rates, and revenue metrics",
+      "Architected a comprehensive education ecosystem from scratch using PHP, MySQL, and JavaScript.",
+      "Engineered high-performance front-end interfaces utilizing modern CSS Grid and Flexbox for cross-device fluidity.",
+      "Integrated complex modules for enrollment, automated certificate generation, and real-time email notifications.",
+      "Secured system integrity through advanced role-based access control (RBAC) and encrypted authentication.",
+      "Developed analytical dashboards providing real-time insights into revenue metrics and student progress.",
     ],
   },
   {
     title: "Laravel Developer | Clinic Management System",
     achievements: [
-      "Developed a complete clinic management platform using PHP (Laravel) and MySQL, serving multiple healthcare facilities",
-      "Developed modular features including patient registration, appointment scheduling, electronic medical records (EMR), prescription management, and billing system",
-      "Designed responsive dashboard interfaces using Blade templates, Bootstrap, and custom CSS for seamless use on desktop and tablet devices",
+      "Built a multi-tenant healthcare platform using Laravel, optimizing medical record retrieval speeds.",
+      "Deployed modular EMR features, including appointment scheduling and digital prescription management.",
+      "Designed intuitive Blade-based dashboards ensuring seamless UX for healthcare administrators.",
+    ],
+  },
+  {
+    title: "CMS Specialist | WordPress & Joomla Development",
+    achievements: [
+      "Developed and customized enterprise-level websites using WordPress and Joomla, focusing on scalability and SEO.",
+      "Engineered custom themes and plugins to extend CMS functionality beyond standard out-of-the-box features.",
+      "Optimized site performance and security protocols, ensuring high-speed delivery and protection against vulnerabilities.",
     ],
   },
   {
     title: "Frontend Development | Responsive Web Applications",
     achievements: [
-      "Developed multiple responsive websites and single-page applications using React.js, HTML5, CSS3, and modern JavaScript (ES6+)",
+      "Developed high-traffic SPAs using React.js and ES6+, prioritizing modular component architecture.",
     ],
   },
 ];
@@ -29,26 +38,25 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="experience">
-      <h2>Professional Experience</h2>
+      <div className="section-header">
+        <h2>Professional Experience</h2>
+        <div className="header-bar"></div>
+      </div>
 
       <div className="timeline">
         {experiences.map((exp, i) => (
           <div key={i} className="timeline-card">
-            {exp.year && <h3>{exp.year}</h3>}
-            <h4>{exp.title}</h4>
-
-            {(exp.company || exp.location) && (
-              <p className="company">
-                {exp.company}
-                {exp.location && (
-                  <span className="location"> — {exp.location}</span>
-                )}
-              </p>
-            )}
+            <div className="card-header">
+              <span className="badge">Project Milestone</span>
+              <h4>{exp.title}</h4>
+            </div>
 
             <ul className="achievements">
               {exp.achievements.map((achievement, index) => (
-                <li key={index}>{achievement}</li>
+                <li key={index}>
+                  <span className="bullet-icon">✓</span>
+                  <p>{achievement}</p>
+                </li>
               ))}
             </ul>
           </div>

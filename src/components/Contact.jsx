@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import {
   FaEnvelope,
@@ -6,7 +5,7 @@ import {
   FaMapMarkerAlt,
   FaGithub,
   FaLinkedin,
-} from "react-icons/fa"; // You'll need to install react-icons
+} from "react-icons/fa";
 import "./Contact.css";
 
 export default function Contact() {
@@ -16,19 +15,56 @@ export default function Contact() {
     message: "",
   });
 
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const sendMessage = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
+    setStatus("");
+
     try {
-      await axios.post("http://localhost:5000/contact", formData);
-      alert("Message sent!");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      alert("Failed to send message");
+      const response = await fetch(
+        "http://localhost/portfolio-backend/send_message.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.log(error);
+      setStatus("error");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -36,101 +72,86 @@ export default function Contact() {
       <h2 className="section-title">Contact Me</h2>
 
       <div className="contact-container">
-        {/* Left Side: Contact Info */}
         <div className="contact-info">
           <p className="contact-desc">
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision. Feel free to reach out!
+            I'm always open to discussing new projects or opportunities.
           </p>
 
           <div className="info-cards">
             <div className="info-card">
-              <div className="icon-box">
-                <FaEnvelope />
-              </div>
-              <div className="text-box">
-                <span>Email</span>
-                <p>leweyehuyirsaw@gmail.com</p>
-              </div>
+              <FaEnvelope />
+              <p>leweyehuyirsaw@gmail.com</p>
             </div>
 
             <div className="info-card">
-              <div className="icon-box">
-                <FaPhoneAlt />
-              </div>
-              <div className="text-box">
-                <span>Phone</span>
-                <p>+251988322475</p>
-              </div>
+              <FaPhoneAlt />
+              <p>+251988322475</p>
             </div>
 
             <div className="info-card">
-              <div className="icon-box">
-                <FaMapMarkerAlt />
-              </div>
-              <div className="text-box">
-                <span>Location</span>
-                <p>Ethiopia</p>
-              </div>
+              <FaMapMarkerAlt />
+              <p>Ethiopia</p>
             </div>
           </div>
 
-          <div className="social-links">
-            <p>Connect with me</p>
-            <div className="social-icons">
-              <a href="https://github.com/Leweyehu">
-                <FaGithub />
-              </a>
-              <a href="https://www.linkedin.com/in/leweyehu-yirsaw-9040b8b6/">
-                <FaLinkedin />
-              </a>
-              <a href="mailto:yourgmail@gmail.com">
-                <FaEnvelope />
-              </a>
-            </div>
+          <div className="social-icons">
+            <a
+              href="https://github.com/Leweyehu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/leweyehu-yirsaw-9040b8b6/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
           </div>
         </div>
 
-        {/* Right Side: Form */}
+        {/* Contact Form */}
         <form className="contact-form" onSubmit={sendMessage}>
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="your.email@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="form-group">
-            <label>Message</label>
-            <textarea
-              name="message"
-              placeholder="Your message..."
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
 
-          <button type="submit" className="send-btn">
-            Send Message
+          <button type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
           </button>
+
+          {status === "success" && (
+            <p className="success-msg">Message sent successfully!</p>
+          )}
+
+          {status === "error" && (
+            <p className="error-msg">Something went wrong. Try again.</p>
+          )}
         </form>
       </div>
     </section>

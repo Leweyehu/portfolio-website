@@ -5,9 +5,9 @@ const skillsData = [
   {
     title: "Backend Development",
     skills: [
-      { name: "PHP", level: 90 },
+      { name: "PHP", level: 85 },
       { name: "Java", level: 90 },
-      { name: "Python", level: 85 },
+      { name: "Python", level: 80 },
       { name: "Django", level: 80 },
       { name: "C++", level: 90 },
     ],
@@ -17,14 +17,13 @@ const skillsData = [
     skills: [
       { name: "React", level: 82 },
       { name: "Bootstrap CSS", level: 90 },
-      { name: "JavaScript", level: 90 },
+      { name: "JavaScript", level: 85 },
     ],
   },
   {
-    title: "AI & Machine Learning",
+    title: "Machine Learning",
     skills: [
       { name: "Machine Learning Basics", level: 85 },
-      { name: "AI Development", level: 70 },
       { name: "Data Processing", level: 85 },
       { name: "Deep Learning", level: 80 },
     ],
@@ -60,8 +59,14 @@ export default function Skills() {
                     className="progress-fill"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1 }}
-                    viewport={{ once: true }}
+                    transition={{
+                      duration: 1.5,
+                      ease: "easeOut",
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.4,
+                    }}
                   />
                 </div>
               </div>

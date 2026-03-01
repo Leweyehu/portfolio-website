@@ -1,117 +1,168 @@
 :root {
-  /* Colors sampled from the provided image */
-  --bg-dark-base: #0f172a;       /* The deepest background */
-  --bg-card-navy: #1e293b;       /* The lighter card color in the image */
-  --accent-blue: #38bdf8;        /* The bright blue for highlights */
+  --bg-dark-base: #020617;
+  --bg-card-navy: rgba(30, 41, 59, 0.7);
+  --accent-blue: #38bdf8;
+  --accent-orange: #ff6347;
   --text-white: #f8fafc;
   --text-dim: #94a3b8;
 }
 
 .experience {
-  padding: 100px 5%;
-  background-color: var(--bg-dark-base);
+  padding: 120px 5%;
+  background: linear-gradient(180deg, #09249d 0%, #0f172a 100%);
   color: var(--text-white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .experience h2 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  margin-bottom: 4rem;
-  text-align: center;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #2b63b2, #2b63b2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-bar {
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(to right, var(--accent-orange), #ff9966);
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Gap between cards like the image gap */
+  gap: 2.5rem;
   width: 100%;
-  max-width: 850px;
-}
-
-/* Matching the exact rounded card style from the image */
-.timeline-card {
-  background-color: var(--bg-card-navy);
-  border-radius: 24px; /* Large rounded corners as seen in the image */
-  padding: 3rem 2.5rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  text-align: center; /* Perfect centering */
-  border: 1px solid rgba(255, 255, 255, 0.03); /* Extremely subtle border */
-}
-
-.timeline-card:hover {
-  transform: translateY(-5px);
-  background-color: #243347; /* Subtle hover highlight */
-}
-
-/* Typography that matches modern portifolios */
-.timeline-card h3 {
-  color: var(--accent-blue);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.75rem;
-}
-
-.timeline-card h4 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-  line-height: 1.3;
-}
-
-.timeline-card .company {
-  color: var(--text-dim);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
-.timeline-card .achievements {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 90%;
-}
-
-.timeline-card .achievements li {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #cbd5e1; /* Soft contrast for long text readability */
+  max-width: 900px;
   position: relative;
 }
 
-/* Adds a small centered bullet separator between achievements if desired */
-.timeline-card .achievements li:not(:last-child)::after {
+/* Vertical decorative line */
+.timeline::before {
   content: "";
-  display: block;
-  width: 30px;
-  height: 1px;
-  background: rgba(56, 189, 248, 0.2);
-  margin: 1rem auto 0;
+  position: absolute;
+  left: -20px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent-orange), transparent);
 }
 
-/* Responsive adjustments */
+.timeline-card {
+  background: var(--bg-card-navy);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(9, 112, 196, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-card:hover {
+  transform: translateX(10px);
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(35, 79, 151, 0.9);
+}
+
+.card-header {
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: rgba(255, 99, 71, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.timeline-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 12px;
+  color: #ffffff;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.achievements li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.bullet-icon {
+  min-width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 4px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
 @media (max-width: 768px) {
-  .experience {
-    padding: 60px 1.5rem;
-  }
-  
-  .timeline-card {
-    padding: 2rem 1.5rem;
-    border-radius: 18px;
-  }
-  
-  .timeline-card h4 {
-    font-size: 1.3rem;
-  }
+  .experience { padding: 80px 20px; }
+  .timeline::before { display: none; }
+  .timeline-card { padding: 1.5rem; border-radius: 20px; }
+  .timeline-card h4 { font-size: 1.2rem; }
+}
+.experience {
+  padding: 120px 5%;
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: background 0.4s ease;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-card h4 {
+  color: var(--text-main);
+}
+
+.achievements li {
+  color: var(--text-sub);
+}
+
+.badge {
+  background: rgba(255, 99, 71, 0.15);
+  color: var(--accent);
 }

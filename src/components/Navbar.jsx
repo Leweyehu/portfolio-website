@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import ThemeToggle from "./ThemeToggle";
 import { ThemeContext } from "../context/ThemeContext";
 import { FaMoon, FaSun } from "react-icons/fa";
 import "./Navbar.css";
@@ -7,7 +8,7 @@ export default function Navbar() {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <nav className={darkMode ? "navbar dark" : "navbar"}>
+    <nav className="navbar">
       <h2 className="logo">
         <span className="logo-text">LY</span>
       </h2>
@@ -20,10 +21,17 @@ export default function Navbar() {
         <a href="#contact">Contact</a>
         <a href="#skills">Skills</a>
       </div>
+      <nav>
+        {/* <div className="logo">My Portfolio</div> */}
 
-      <button onClick={toggleTheme} className="theme-btn">
+        <div className="nav-right">
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      {/* <button onClick={toggleTheme} className="theme-btn">
         {darkMode ? <FaSun /> : <FaMoon />}
-      </button>
+      </button> */}
     </nav>
   );
 }

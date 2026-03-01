@@ -15,7 +15,7 @@ export default function Hero() {
         >
           <h1>Hello, I'm</h1>
           <h1 className="name">Leweyehu Yirsaw</h1>
-          <h2>Full Stack Developer</h2>
+          <h2>Full Stack Web Developer</h2>
 
           <p>
             Specialized in Front-End and Back-End Development. Skilled in
