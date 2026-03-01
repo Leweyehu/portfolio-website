@@ -4,7 +4,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import "./Navbar.css";
 
 export default function Navbar() {
-  // We only pull darkMode here to change the styling of the Navbar itself
+  // Only darkMode is extracted because ThemeToggle handles the switching logic.
   const { darkMode } = useContext(ThemeContext);
 
   return (
@@ -23,6 +23,7 @@ export default function Navbar() {
       </div>
 
       <div className="nav-right">
+        {/* ThemeToggle component uses toggleTheme internally */}
         <ThemeToggle />
       </div>
     </nav>
