@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { ThemeContext } from "../context/ThemeContext";
 import "./Navbar.css";
 
 export default function Navbar() {
-  // Only darkMode is extracted because ThemeToggle handles the switching logic.
   const { darkMode } = useContext(ThemeContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
@@ -13,17 +13,33 @@ export default function Navbar() {
         <span className="logo-text">LY</span>
       </h2>
 
-      <div className="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="#skills">Skills</a>
+      {/* Hamburger Button */}
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </div>
+
+      <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+        <a href="#hero" onClick={() => setMenuOpen(false)}>
+          Home
+        </a>
+        <a href="#about" onClick={() => setMenuOpen(false)}>
+          About
+        </a>
+        <a href="#experience" onClick={() => setMenuOpen(false)}>
+          Experience
+        </a>
+        <a href="#projects" onClick={() => setMenuOpen(false)}>
+          Projects
+        </a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>
+          Contact
+        </a>
+        <a href="#skills" onClick={() => setMenuOpen(false)}>
+          Skills
+        </a>
       </div>
 
       <div className="nav-right">
-        {/* ThemeToggle component uses toggleTheme internally */}
         <ThemeToggle />
       </div>
     </nav>
