@@ -31,8 +31,11 @@ export default function Navbar() {
         <a href="#projects" onClick={() => setMenuOpen(false)}>
           Projects
         </a>
+        <a href="#certifications" onClick={() => setMenuOpen(false)}>
+          Certifications
+        </a>
         <a href="#contact" onClick={() => setMenuOpen(false)}>
-          Contact
+          Contacts
         </a>
         <a href="#skills" onClick={() => setMenuOpen(false)}>
           Skills
