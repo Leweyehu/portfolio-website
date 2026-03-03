@@ -24,11 +24,8 @@ export default function Hero() {
 
           {/* Optional Professional Buttons */}
           <div className="hero-buttons">
-            <a href="#contact" className="hero-btn">
-              Contact Me
-            </a>
             <a href="#about" className="hero-btn outline">
-              Learn More
+              About Me
             </a>
           </div>
         </motion.div>
